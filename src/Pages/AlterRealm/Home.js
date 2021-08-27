@@ -7,7 +7,6 @@ export default function Home() {
             Alter Realm
 
     <Switch>
-
        <Route path="/alter/leaderboard" component={LeaderBoard}></Route>
      </Switch>
         </div>
