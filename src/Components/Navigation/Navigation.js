@@ -8,6 +8,7 @@ export default class Navigation extends Component {
                     <li><Link to="/home">home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/alter">Altered Realm</Link></li>
+                    <li><Link to="/alter/scoreboard">Score</Link></li>
                 </ul>
                 
                 
