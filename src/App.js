@@ -10,6 +10,7 @@ import SMResults from "./Pages/SpeengleMeengle/Results"
 import MortyWorld from "./Pages/MortyWorld/Home"
 import MortyGame from "./Pages/MortyWorld/Games"
 import Home from "./Pages/Home"
+import Testing from "./Pages/MortyWorld/TestingGround"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
 import {Route, Link, Switch, Redirect, useHistory} from "react-router-dom";
@@ -178,6 +179,7 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
        <Navigation></Navigation>
        <Switch>
          <Route path="/" exact component={Home}></Route>
+         <Route path="/test" exact component={Testing}></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
          <Route path="/sm" exact><SMHome  {...this.state}></SMHome></Route>
