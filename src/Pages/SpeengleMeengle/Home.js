@@ -4,7 +4,7 @@ import {Route, Link, Switch, Redirect} from "react-router-dom";
 export default function Home() {
     return (
         <div>
-            Alter Realm
+            Speengle-Meengle
             <Link to="/alter/characters"><button> Character Select</button></Link>
 
     <Switch>
