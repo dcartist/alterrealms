@@ -21,13 +21,13 @@ export default class App extends Component {
     this.state={
       player:{},
       computer:{},
+      ready: false,
       fights: 0,
       playerWeapon: 0,
       computerWeapon: 0,
       computerId: 0,
       winner: "",
       loser: "",
-      weapon: 0,
       score: 0
     }
   }
@@ -46,21 +46,26 @@ export default class App extends Component {
   this.setState({player: playerData, computerWeapon: compWeapon, playerWeapon: userWeapon})
   let compPlayer = Math.floor(Math.random() * 670);
   axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
-    results => {this.setState({computer: results.data})})
+    results => {
+      console.log(this.state.ready)
+      this.setState({computer: results.data, ready: true})})
+  
  }
 
  //* Player selects who they want to be
   selectPlayer = (data) => {
     let compWeapon = Math.floor(Math.random() * 3);
     this.setState({player: data, computerWeapon: compWeapon})
-    console.log(this.state.computerWeapon)
     let compPlayer = Math.floor(Math.random() * 670);
     axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
       results => {this.setState({computer: results.data})})
   }
   //* Player selecting weapon
   selectWeapon = (data) => {
-    this.setState({playerWeapon: data})
+
+    this.setState({ready: true})
+    this.setState({playerWeapon: data, ready: true})
+    console.log(this.state.ready)
   }
 
   render() {
@@ -72,7 +77,7 @@ export default class App extends Component {
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
          <Route path="/sm" exact component={AlterHome}></Route>
-         <Route path="/sm/game" exact><AlterGame></AlterGame></Route>
+         <Route path="/sm/game" exact><AlterGame {...this.state}></AlterGame></Route>
          <Route path="/sm/weapon" exact><AlterWeaponSelect selectWeapon={this.selectWeapon}></AlterWeaponSelect></Route>
          <Route path="/sm/scoreboard" exact component={AlterScoreboard}></Route>
          <Route path="/sm/instructions" exact component={AlterInstructions}></Route>
