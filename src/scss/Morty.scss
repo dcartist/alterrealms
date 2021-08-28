@@ -10,13 +10,20 @@
     margin: auto;
   }
   .shape {
+    cursor: crosshair;
     position: absolute;
     left: 0;
     display: block;
-      top: 0;
-    
+    top: 0;
     x-transition: all 1s ease-in-out;
     animation: ani 8.7s infinite;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
   }
 
   .shape1 {
