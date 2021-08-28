@@ -1,0 +1,14 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-items: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: url('../Images/rain.svg');
+    background-color: #2F9331;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}

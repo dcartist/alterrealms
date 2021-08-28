@@ -1,0 +1,23 @@
+.intro-base{
+    display: flex;
+    // align-content: center;
+    min-height: 90vh;
+    justify-content: center;
+    flex-direction: column;
+    div{
+        margin: 2px auto;
+        // border: red 1px solid;
+        .rick-logo {
+            height: 200px;
+            width: auto;
+        }
+        .rick-alter {
+            height: 400px;
+            width: auto;
+            filter: drop-shadow(7px 7px 7px #111111);
+            -webkit-filter: drop-shadow(7px 7px 7px #111111);
+    
+        }
+    }
+   
+}

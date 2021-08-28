@@ -1,6 +1,8 @@
+@import 'scss/variables';
 @import 'scss/About';
 @import 'scss/Board';
 @import 'scss/Default';
+@import 'scss/Intro';
 @import 'scss/Navigation';
 @import 'scss/Profile';
 
@@ -23,3 +25,5 @@
   @mixin for-big-desktop-up {
     @media (min-width: 1800px) { @content; }
   }
+
+
