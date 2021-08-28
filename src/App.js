@@ -1,20 +1,21 @@
 import "./style.scss";
 import About from "./Pages/About";
-import AlterHome from "./Pages/SpeengleMeengle/Home";
-import AlterGame from "./Pages/SpeengleMeengle/Game";
-import AlterInstructions from "./Pages/SpeengleMeengle/Instructions";
-import AlterScoreboard from "./Pages/SpeengleMeengle/Leaderboard";
-import AlterCharactersSelect from "./Pages/SpeengleMeengle/PlayerSearch";
-import AlterWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
+import SMHome from "./Pages/SpeengleMeengle/Home";
+import SMGame from "./Pages/SpeengleMeengle/Game";
+import SMInstructions from "./Pages/SpeengleMeengle/Instructions";
+import SMScoreboard from "./Pages/SpeengleMeengle/Leaderboard";
+import SMCharactersSelect from "./Pages/SpeengleMeengle/PlayerSearch";
+import SMWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
+import SMResults from "./Pages/SpeengleMeengle/Results"
 import Home from "./Pages/Home"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
-import {Route, Link, Switch, Redirect} from "react-router-dom";
+import {Route, Link, Switch, Redirect, useHistory} from "react-router-dom";
 import axios from "axios";
 
 
-//Speengle-Meengle RPS
-
+// Speengle-Meengle RPS
+// Get your morty
 export default class App extends Component {
   constructor(){
     super()
@@ -23,14 +24,16 @@ export default class App extends Component {
       computer:{},
       ready: false,
       tied: false,
+      results: false,
       fights: 0,
       playerWeapon: 0,
       computerWeapon: 0,
       computerId: 0,
-      winner: "",
-      loser: "",
+      winner: {},
+      loser: {},
       score: 0
     }
+    this.initalstate = this.state
   }
   //* Starting to wake up heroku
   componentDidMount(){
@@ -68,10 +71,10 @@ export default class App extends Component {
 //* Setting up winner looser
 //if playernumber (player wins)  is 0 then set results[0] to player 
 //if playernumber {player looses} is 1 then set results[1] to player
-selectingWinner =  (winner, looser, playernumber) => {
-  axios.get(`http://localhost:8080/api/gameplay/results/${winner.id}/${looser.id}`).then(
+selectingWinner =  (winner, loser, playernumber) => {
+  axios.get(`http://localhost:8080/api/gameplay/results/${winner.id}/${loser.id}`).then(
     results=>{
-      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1] }) : this.setState({player: results.data[1], computer: results.data[0] })
+      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true })
     }
   )
 }
@@ -80,7 +83,7 @@ tiedGame = () => {
 console.log("tied")
 axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this.state.computer.id}`).then(
   results => {
-    this.setState({player: results.data[0], computer: results.data[1]})
+    this.setState({player: results.data[0], computer: results.data[1], tied: true })
   }
 )
 }
@@ -90,7 +93,8 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
   // 0 beats 2
 
   Speengle = () => {
-    this.setState({fights: this.state.fights + 1})
+    let fight = this.state.fights + 1
+    this.setState({fights: fight})
     switch(this.state.playerWeapon){
       case this.state.computerWeapon == this.state.playerWeapon:
         this.tiedGame()
@@ -103,6 +107,8 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
         } else {
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
+
+        break;
       // player is 1
       case 1:
 //computer wins
@@ -112,6 +118,8 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
 
+        break;
+
       //player is 2
       default:
         //computer wins
@@ -120,8 +128,31 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
         } else {
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
-    }
 
+        break;
+    }
+  }
+
+  //* Replay and Reset
+
+  replay = (check) => {
+    // let history = useHistory();
+    // history.push("/home");
+    // if check is 0 reset everything and go back to main page
+    // if check is 1 reset everything and go back to character select page
+    // if check is 2 reset just weapon and go to player select weapon
+
+    if (check == 0){
+      this.setState(this.initalstate)
+      this.history.push("/home")
+      console.log(this.state.player)
+
+    } else if (check == 1){
+      this.history.push("/home")
+    } else {
+      this.history.push("/home")
+    }
+    
   }
 
   render() {
@@ -132,12 +163,13 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
          <Route path="/" exact component={Home}></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
-         <Route path="/sm" exact component={AlterHome}></Route>
-         <Route path="/sm/game" exact><AlterGame {...this.state}></AlterGame></Route>
-         <Route path="/sm/weapon" exact><AlterWeaponSelect selectWeapon={this.selectWeapon}></AlterWeaponSelect></Route>
-         <Route path="/sm/scoreboard" exact component={AlterScoreboard}></Route>
-         <Route path="/sm/instructions" exact component={AlterInstructions}></Route>
-         <Route path="/sm/characters"><AlterCharactersSelect selectPlayer={this.selectPlayer}></AlterCharactersSelect></Route>
+         <Route path="/sm" exact component={SMHome}></Route>
+         <Route path="/sm/game" exact><SMGame {...this.state} Speengle={this.Speengle}></SMGame></Route>
+         <Route path="/sm/results" exact><SMResults {...this.state} replay={this.replay}></SMResults></Route>
+         <Route path="/sm/weapon" exact><SMWeaponSelect selectWeapon={this.selectWeapon}></SMWeaponSelect></Route>
+         <Route path="/sm/scoreboard" exact component={SMScoreboard}></Route>
+         <Route path="/sm/instructions" exact component={SMInstructions}></Route>
+         <Route path="/sm/characters"><SMCharactersSelect selectPlayer={this.selectPlayer}></SMCharactersSelect></Route>
        </Switch>
       </div>
     )

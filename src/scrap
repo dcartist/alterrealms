@@ -1,0 +1,30 @@
+switch(this.state.playerWeapon){
+      case this.state.computerWeapon == this.state.playerWeapon:
+        this.tiedGame()
+        break;
+      // player is 0
+      case 0:
+        //computer wins
+        if (this.state.computerWeapon == 1){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+      // player is 1
+      case 1:
+//computer wins
+        if (this.state.computerWeapon == 2){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+
+      //player is 2
+      default:
+        //computer wins
+        if (this.state.computerWeapon == 0){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+    }

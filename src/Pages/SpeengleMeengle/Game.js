@@ -1,15 +1,7 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 export default function Game(props) {
-    console.log(props)
-    console.log(props.player);
-    // return (
-    //     <div>
-
-    //     </div>
-    //   )
     if (props.ready){
-        console.log("returning true")
         return (
             <div>
                 something
@@ -18,6 +10,8 @@ export default function Game(props) {
               
               {props.computer.name} 
               {props.computerWeapon}
+            <Link to="/sm/results"><button onClick={props.Speengle}>Fight!</button></Link>
+              
               
             </div>
         )
