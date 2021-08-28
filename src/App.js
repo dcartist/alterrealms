@@ -8,6 +8,7 @@ import SMCharactersSelect from "./Pages/SpeengleMeengle/PlayerSearch";
 import SMWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
 import SMResults from "./Pages/SpeengleMeengle/Results"
 import MortyWorld from "./Pages/MortyWorld/Home"
+import MortyGame from "./Pages/MortyWorld/Games"
 import Home from "./Pages/Home"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
@@ -187,6 +188,7 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
          <Route path="/sm/instructions" exact component={SMInstructions}></Route>
          <Route path="/sm/characters"><SMCharactersSelect selectPlayer={this.selectPlayer}></SMCharactersSelect></Route>
          <Route path="/morty" exact component={MortyWorld}></Route>
+         <Route path="/morty/game" exact><MortyGame></MortyGame></Route>
        </Switch>
       </div>
     )
