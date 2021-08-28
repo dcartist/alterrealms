@@ -8,6 +8,7 @@ export default function Games() {
 
     function multiMorty(info){
         setscore(morties[info].score + score)
+        let newSize = size - 50
         setmorties(morties.concat({class:{height:`${size}px`}, score:10}))
 
     }
