@@ -12,15 +12,13 @@
   .shape {
     position: absolute;
     left: 0;
-    // background-color: red;
-    // width: 80px;
-    // height: 80px;
     display: block;
       top: 0;
     
     x-transition: all 1s ease-in-out;
     animation: ani 8.7s infinite;
   }
+  
   .shape1 {
     position: absolute;
     left: 0;

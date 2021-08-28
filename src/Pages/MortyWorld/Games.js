@@ -5,14 +5,21 @@ export default function Games() {
     const [morty, setmorty] = useState({class:{height:"200px"}, score:20})
     const [morties, setmorties] = useState([morty])
     const [score, setscore] = useState(0)
-    const [size, setsize] = useState(150)
+    const [size, setsize] = useState(100)
+    const [count, setcount] = useState(0)
 
     function multiMorty(info){
-        console.log("something")
-        setscore(morties[info].score + score)
-        let newSize = size - 50
-        setsize(newSize)
-        setmorties(morties.concat({class:{height:`${size}px`}, score:10}))
+        console.log(count)
+        if (count <= 3){
+            setscore(morties[info].score + score)
+            setcount(count + 1)
+            let newSize = size - 20
+            setsize(newSize)
+            setmorties(morties.concat({class:{height:`${size}px`}, score:10}))
+        } else {
+            setscore(morties[info].score + score)
+        }
+        
 
     }
     return (
