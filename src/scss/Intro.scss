@@ -4,12 +4,18 @@
     min-height: 90vh;
     justify-content: center;
     flex-direction: column;
+    // background: url('../Images/rain.svg');
+    // background-color: #2F9331;
+    background-repeat: no-repeat;
+    background-size: cover;
     div{
         margin: 2px auto;
         // border: red 1px solid;
         .rick-logo {
             height: 200px;
             width: auto;
+            filter: drop-shadow(7px 7px 7px #111111);
+            -webkit-filter: drop-shadow(7px 7px 7px #111111);
         }
         .rick-alter {
             height: 400px;

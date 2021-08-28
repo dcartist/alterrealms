@@ -5,6 +5,7 @@ import AlterGame from "./Pages/SpeengleMeengle/Game";
 import AlterInstructions from "./Pages/SpeengleMeengle/Instructions";
 import AlterScoreboard from "./Pages/SpeengleMeengle/Leaderboard";
 import AlterCharactersSelect from "./Pages/SpeengleMeengle/PlayerSearch";
+import AlterWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
 import Home from "./Pages/Home"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
@@ -12,7 +13,7 @@ import {Route, Link, Switch, Redirect} from "react-router-dom";
 import axios from "axios";
 
 
-//Speengle-Meengle
+//Speengle-Meengle RPS
 
 export default class App extends Component {
   constructor(){
@@ -30,6 +31,7 @@ export default class App extends Component {
       score: 0
     }
   }
+  //* Starting to wake up heroku
   componentDidMount(){
     axios.get("https://immense-refuge-56824.herokuapp.com/").then(
       results => console.log("Waking up")
@@ -47,6 +49,7 @@ export default class App extends Component {
     results => {this.setState({computer: results.data})})
  }
 
+ //* Player selects who they want to be
   selectPlayer = (data) => {
     let compWeapon = Math.floor(Math.random() * 3);
     this.setState({player: data, computerWeapon: compWeapon})
@@ -55,7 +58,10 @@ export default class App extends Component {
     axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
       results => {this.setState({computer: results.data})})
   }
-
+  //* Player selecting weapon
+  selectWeapon = (data) => {
+    this.setState({playerWeapon: data})
+  }
 
   render() {
     return (
@@ -63,13 +69,14 @@ export default class App extends Component {
        <Navigation></Navigation>
        <Switch>
          <Route path="/" exact component={Home}></Route>
+         <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
-         <Route path="/alter" exact component={AlterHome}></Route>
-         <Route path="/alter/game" exact><AlterGame></AlterGame></Route>
-         <Route path="/alter/game" exact><AlterGame></AlterGame></Route>
-         <Route path="/alter/scoreboard" exact component={AlterScoreboard}></Route>
-         <Route path="/alter/instructions" exact component={AlterInstructions}></Route>
-         <Route path="/alter/characters"><AlterCharactersSelect selectPlayer={this.selectPlayer}></AlterCharactersSelect></Route>
+         <Route path="/sm" exact component={AlterHome}></Route>
+         <Route path="/sm/game" exact><AlterGame></AlterGame></Route>
+         <Route path="/sm/weapon" exact><AlterWeaponSelect selectWeapon={this.selectWeapon}></AlterWeaponSelect></Route>
+         <Route path="/sm/scoreboard" exact component={AlterScoreboard}></Route>
+         <Route path="/sm/instructions" exact component={AlterInstructions}></Route>
+         <Route path="/sm/characters"><AlterCharactersSelect selectPlayer={this.selectPlayer}></AlterCharactersSelect></Route>
        </Switch>
       </div>
     )

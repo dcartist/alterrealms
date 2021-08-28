@@ -5,10 +5,10 @@ export default function Home() {
     return (
         <div>
             Speengle-Meengle
-            <Link to="/alter/characters"><button> Character Select</button></Link>
+            <Link to="/sm/characters"><button> Character Select</button></Link>
 
     <Switch>
-       <Route path="/alter/leaderboard" component={LeaderBoard}></Route>
+       <Route path="/sm/leaderboard" component={LeaderBoard}></Route>
      </Switch>
         </div>
     )

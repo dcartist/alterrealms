@@ -16,7 +16,7 @@ export default class PlayerSearch extends Component {
         return (
             <div>
                 {this.state.characters.map((item, index) => 
-                    <Link to="/alter/game" key={index} onClick={() =>this.props.selectPlayer(item)}> {item.name}</Link>
+                    <Link to="/sm/weapon" key={index} onClick={() =>this.props.selectPlayer(item)}> {item.name}</Link>
                 )}
             </div>
         )
