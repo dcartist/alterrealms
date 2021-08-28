@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 export default function Results(props) {
     // console.log(props)
     
@@ -13,8 +13,9 @@ export default function Results(props) {
                {props.winner.name}
                 {/* {props.winner.name} */}
                 <p>looser:</p>
-                <button onClick={()=>props.replay(0)}>Reset Game</button>
-                {/* {props.looser.name} */}
+               {props.loser.name}
+                <Link to="/sm"><button onClick={()=>props.replay(0)}>Reset Game</button></Link>
+                
             </div>
         )
 

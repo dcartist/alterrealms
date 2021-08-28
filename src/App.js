@@ -7,6 +7,7 @@ import SMScoreboard from "./Pages/SpeengleMeengle/Leaderboard";
 import SMCharactersSelect from "./Pages/SpeengleMeengle/PlayerSearch";
 import SMWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
 import SMResults from "./Pages/SpeengleMeengle/Results"
+import MortyWorld from "./Pages/MortyWorld/Home"
 import Home from "./Pages/Home"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
@@ -31,9 +32,23 @@ export default class App extends Component {
       computerId: 0,
       winner: {},
       loser: {},
-      score: 0
+      score: 0,
+      initalstate: {
+        player:{},
+        computer:{},
+        ready: false,
+        tied: false,
+        results: false,
+        fights: 0,
+        playerWeapon: 0,
+        computerWeapon: 0,
+        computerId: 0,
+        winner: {},
+        loser: {},
+        score: 0
+      }
     }
-    this.initalstate = this.state
+    
   }
   //* Starting to wake up heroku
   componentDidMount(){
@@ -136,21 +151,22 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
   //* Replay and Reset
 
   replay = (check) => {
-    // let history = useHistory();
-    // history.push("/home");
+  
     // if check is 0 reset everything and go back to main page
     // if check is 1 reset everything and go back to character select page
     // if check is 2 reset just weapon and go to player select weapon
 
     if (check == 0){
-      this.setState(this.initalstate)
-      this.history.push("/home")
-      console.log(this.state.player)
-
+      this.setState(this.state.initalstate)
     } else if (check == 1){
-      this.history.push("/home")
+      this.setState(this.state.initalstate)
+      // let compWeapon = Math.floor(Math.random() * 3);
+      // let compPlayer = Math.floor(Math.random() * 670);
+      // axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
+      // results => {this.setState({computer: results.data, computerWeapon: compWeapon})})
     } else {
-      this.history.push("/home")
+      let compWeapon = Math.floor(Math.random() * 3);
+      this.setState({playerWeapon: 0, computerWeapon: compWeapon })
     }
     
   }
@@ -163,13 +179,14 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
          <Route path="/" exact component={Home}></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
-         <Route path="/sm" exact component={SMHome}></Route>
+         <Route path="/sm" exact><SMHome  {...this.state}></SMHome></Route>
          <Route path="/sm/game" exact><SMGame {...this.state} Speengle={this.Speengle}></SMGame></Route>
          <Route path="/sm/results" exact><SMResults {...this.state} replay={this.replay}></SMResults></Route>
          <Route path="/sm/weapon" exact><SMWeaponSelect selectWeapon={this.selectWeapon}></SMWeaponSelect></Route>
          <Route path="/sm/scoreboard" exact component={SMScoreboard}></Route>
          <Route path="/sm/instructions" exact component={SMInstructions}></Route>
          <Route path="/sm/characters"><SMCharactersSelect selectPlayer={this.selectPlayer}></SMCharactersSelect></Route>
+         <Route path="/morty" exact component={MortyWorld}></Route>
        </Switch>
       </div>
     )

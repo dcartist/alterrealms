@@ -14,8 +14,8 @@ export default function Navigation() {
                     <ul>
                         <li><Link to="/home">home</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/sm">Altered Realm</Link></li>
-                        <li><Link to="/sm/scoreboard">Score</Link></li>
+                        <li><Link to="/sm">Speengle-Meengle</Link></li>
+                        <li><Link to="/morty">Morty World</Link></li>
                     </ul>
                     
                     

@@ -1,7 +1,8 @@
 import React from 'react'
 import LeaderBoard from "./Leaderboard"
 import {Route, Link, Switch, Redirect} from "react-router-dom";
-export default function Home() {
+export default function Home(props) {
+    console.log(props)
     return (
         <div>
             Speengle-Meengle
