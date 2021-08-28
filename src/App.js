@@ -47,7 +47,6 @@ export default class App extends Component {
   let compPlayer = Math.floor(Math.random() * 670);
   axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
     results => {
-      console.log(this.state.ready)
       this.setState({computer: results.data, ready: true})})
   
  }
@@ -62,10 +61,61 @@ export default class App extends Component {
   }
   //* Player selecting weapon
   selectWeapon = (data) => {
-
-    this.setState({ready: true})
     this.setState({playerWeapon: data, ready: true})
-    console.log(this.state.ready)
+  }
+
+//* Setting up winner looser
+//if playernumber (player wins)  is 0 then set results[0] to player 
+//if playernumber {player looses} is 1 then set results[1] to player
+selectingWinner =  (winner, looser, playernumber) => {
+  axios.get(`http://localhost:8080/api/gameplay/${winner.id}/${looser.id}`).then(
+    results=>{
+      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1] }) : this.setState({player: results.data[1], computer: results.data[0] })
+    }
+  )
+}
+  
+tiedGame = () => {
+console.log("tied")
+}
+  //* Speengle-Meengle Game Logic
+  // 1 beats 0
+  // 2 beats 1
+  // 0 beats 2
+
+  Speengle = () => {
+    this.setState({fights: this.state.fights + 1})
+    switch(this.state.playerWeapon){
+      case this.state.computerWeapon == this.state.playerWeapon:
+        this.tiedGame()
+        break;
+      // player is 0
+      case 0:
+        //computer wins
+        if (this.state.computerWeapon == 1){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+      // player is 1
+      case 1:
+//computer wins
+        if (this.state.computerWeapon == 2){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+
+      //player is 2
+      default:
+        //computer wins
+        if (this.state.computerWeapon == 0){
+          this.selectingWinner(this.state.computer, this.state.player, 1)
+        } else {
+          this.selectingWinner(this.state.player, this.state.computer, 0)
+        }
+    }
+
   }
 
   render() {
