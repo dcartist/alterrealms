@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import Profile from '../../Components/Image/Profile'
 import axios from 'axios'
 export default class PlayerSearch extends Component {
     constructor(props){
@@ -14,10 +15,13 @@ export default class PlayerSearch extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="players-section-base">
+                <div className="players">
                 {this.state.characters.map((item, index) => 
-                    <Link to="/sm/weapon" key={index} onClick={() =>this.props.selectPlayer(item)}> {item.name}</Link>
+                    <Link to="/sm/weapon" key={index} onClick={() =>this.props.selectPlayer(item)}> <Profile {...item}></Profile></Link>
                 )}
+                </div>
+               
             </div>
         )
     }
