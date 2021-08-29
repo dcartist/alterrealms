@@ -29,6 +29,10 @@ export default function Games() {
         }
        
     }
+    function resetMorty(){
+        setmorties(morties.length = 1)
+        setscore(0)
+    }
     function multiMorty(info){
             if (count <= 2){
             setcount(count + 1)
@@ -67,6 +71,7 @@ export default function Games() {
         return(
             <div>
         <p>    YOUR SCORE:  {score}</p>
+        
         </div>
         )
     }
