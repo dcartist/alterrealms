@@ -3,7 +3,8 @@ import Morty from "../../Images/morty.svg"
 export default function Games() {
     const image = [
         "/images/morty.svg", 
-        "/images/morty1.svg"
+        "/images/morty1.svg",
+        "/images/morty2.svg"
     ]
     const [morty, setmorty] = useState({class:{height:"200px"}, score:20, imgurl: image[0]})
     const [morties, setmorties] = useState([morty])
@@ -11,19 +12,31 @@ export default function Games() {
     const [size, setsize] = useState(100)
     const [count, setcount] = useState(0)
     
-
-    function multiMorty(info){
-
-        if (count <= 3){
-            let newState = [...morties];
-            newState[info].imgurl = image[1];
+    function mortyHead(number){
+        let newState = [...morties];
+        if (newState[number].imgurl == image[0] ){
+            
+            newState[number].imgurl = image[1];
             setmorty(newState)
-            setscore(morties[info].score + score)
+        } else if (newState[number].imgurl == image[1]){
+            newState[number].imgurl = image[2];
+            setmorty(newState)
+        } else {
+            newState[number].imgurl = image[0];
+            setmorty(newState)
+        }
+       
+    }
+    function multiMorty(info){
+            if (count <= 2){
             setcount(count + 1)
+            mortyHead(info)
+            setscore(morties[info].score + score)
             let newSize = size - 20
             setsize(newSize)
             setmorties(morties.concat({class:{height:`${size}px`}, score:10, imgurl: image[0]}))
         } else {
+            mortyHead(info)
             setscore(morties[info].score + score)
         }
         
