@@ -1,34 +1,38 @@
 .profile{
     background-color: $textWhite;
-    // padding: 10px;
-    // width: 200px;
     margin: 10px;
     width: 300px;
+
+    
+
+
     img{
         width: 100%;
         vertical-align: middle;
-//   width: 200px;
-//   height: 200px;
-//   border-radius: 50%;
         &:hover{
 
         }
         
     }
     .profile-body{
-        // background-color: $rickHair;
         margin-top: -13px;
-        // -webkit-box-shadow: 2px -5px 15px -4px rgba(0,0,0,0.41); 
-        // box-shadow: 2px -5px 15px -4px rgba(0,0,0,0.41);
         min-height: 200px;
-        color: $blackHole !important;
+       
+        &:not(span){
+            color: $blackHole !important;
+        }
+        span{
+            font-weight: 700;
+            color: $rmBlue !important;
+        }
         p {
             
             font-weight: 700;
             text-align: center;
+            color: $rmBlue;
         }
         div{
-            border-bottom: black 1px solid;
+            border-bottom: $blackHole 1px solid;
             padding: 5px;
             &:last-child{
                 border-bottom: none; 
@@ -42,7 +46,7 @@
 
             div {
                 width: 100%;
-                border-right: black .5px solid;   
+                border-right: $blackHole .5px solid;   
                 border-bottom: none;   
                 &:last-child{
                     border-right: none; 

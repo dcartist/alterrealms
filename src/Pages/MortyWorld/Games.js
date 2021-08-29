@@ -62,7 +62,7 @@ export default function Games() {
                
       {morties.map((item, index) =>
        <div class="path">
-       <img src={process.env.PUBLIC_URL + item.imgurl} style={item.class}className="shape mortyhead" onClick={()=>multiMorty(index)}></img>
+       <img src={process.env.PUBLIC_URL + item.imgurl} style={item.class}className="shape mortyhead shadow-graphic" onClick={()=>multiMorty(index)}></img>
      </div>)}
             </div>
         )

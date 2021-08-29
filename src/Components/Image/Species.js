@@ -5,9 +5,6 @@ import {GiAnimalSkull} from "react-icons/gi"
 import {MdPets} from "react-icons/md"
 
 export default function Species(props) {
-    console.log(props.species)
-  
-
     if(props.species.includes("Hum")){
         return(
             <FaUserAlt></FaUserAlt>

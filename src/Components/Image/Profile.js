@@ -1,9 +1,8 @@
 import React from 'react'
 import Species from './Species'
 export default function Profile(props) {
-    console.log(props.image_url)
     return (
-        <div className="profile">
+        <div className="profile shadow">
 
             <img src={props.image_url} />
             <div className="profile-body">
