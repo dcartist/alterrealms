@@ -1,16 +1,18 @@
-import React, {useState} from 'react'
-import Morty from "../../Images/morty.svg"
+import React, {useState, useEffect} from 'react'
+import useCountDown from 'react-countdown-hook';
 export default function Games() {
     const image = [
         "/images/morty.svg", 
         "/images/morty1.svg",
         "/images/morty2.svg"
     ]
+    const [timeLeft, actions] = useCountDown(10000, 100);
     const [morty, setmorty] = useState({class:{height:"200px"}, score:20, imgurl: image[0]})
     const [morties, setmorties] = useState([morty])
     const [score, setscore] = useState(0)
     const [size, setsize] = useState(100)
     const [count, setcount] = useState(0)
+    // const [final, setfinal] = useState(false)
     
     function mortyHead(number){
         let newState = [...morties];
@@ -42,18 +44,31 @@ export default function Games() {
         
 
     }
-    // console.log(imgurl)
-    return (
-        <div className="Morty">
-            Score : {score}
-           
-  {morties.map((item, index) =>
-   <div class="path">
-   <img src={process.env.PUBLIC_URL + item.imgurl} style={item.class}className="shape mortyhead" onClick={()=>multiMorty(index)}></img>
- </div>)}
-     
-            
-            
+
+    useEffect(() => {
+        actions.start();
+      }, []);
+
+
+    if(timeLeft !== 0){
+        return (
+            <div className="Morty">
+                Score : {score}
+                <h1 id="time-left">{(timeLeft / 1000).toFixed(2)}</h1>
+               
+      {morties.map((item, index) =>
+       <div class="path">
+       <img src={process.env.PUBLIC_URL + item.imgurl} style={item.class}className="shape mortyhead" onClick={()=>multiMorty(index)}></img>
+     </div>)}
+            </div>
+        )
+
+    } else {
+        return(
+            <div>
+        <p>    YOUR SCORE:  {score}</p>
         </div>
-    )
+        )
+    }
+    
 }
