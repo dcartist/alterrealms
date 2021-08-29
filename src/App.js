@@ -35,6 +35,7 @@ export default class App extends Component {
       winner: {},
       loser: {},
       score: 0,
+      weapons: [{name: "spaceship"}, {name: "portal ray"}, {name: "robot"}],
       initalstate: {
         player:{},
         computer:{},
@@ -185,7 +186,7 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
          <Route path="/sm" exact><SMHome  {...this.state}></SMHome></Route>
          <Route path="/sm/game" exact><SMGame {...this.state} Speengle={this.Speengle}></SMGame></Route>
          <Route path="/sm/results" exact><SMResults {...this.state} replay={this.replay}></SMResults></Route>
-         <Route path="/sm/weapon" exact><SMWeaponSelect selectWeapon={this.selectWeapon}></SMWeaponSelect></Route>
+         <Route path="/sm/weapon" exact><SMWeaponSelect selectWeapon={this.selectWeapon} {...this.state}></SMWeaponSelect></Route>
          <Route path="/sm/scoreboard" exact component={SMScoreboard}></Route>
          <Route path="/sm/instructions" exact component={SMInstructions}></Route>
          <Route path="/sm/characters"><SMCharactersSelect selectPlayer={this.selectPlayer}></SMCharactersSelect></Route>
