@@ -28,9 +28,11 @@ export default function Results(props) {
   </div>)
      } 
     else if (props.results){
-        console.log(props.winner)
+        console.log(props)
         return (
-           
+        //    <div>
+        //        <Link to="/sm/"><button className="shadow" onClick={props.replay}>Reset</button></Link>
+        //    </div>
 <div className="ready-game">
 <div className="card">
   <h1>Winner</h1>
@@ -52,7 +54,7 @@ export default function Results(props) {
   </div>
   <Profile {...props.loser}></Profile>
 </div>
-</div>
+</div> 
         )
 
     } else {

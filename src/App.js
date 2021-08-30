@@ -12,6 +12,7 @@ import MortyGame from "./Pages/MortyWorld/Games"
 import GameEx from "./Pages/SpeengleMeengle/GameEx"
 import Home from "./Pages/Home"
 import Testing from "./Pages/MortyWorld/TestingGround"
+import Tester from "./Tester"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
 import {Route, Link, Switch, Redirect, useHistory} from "react-router-dom";
@@ -44,7 +45,7 @@ export default class App extends Component {
         player:{},
         computer:{},
         ready: false,
-        tied: false,
+         tied: false,
         results: false,
         fights: 0,
         playerWeapon: 0,
@@ -52,7 +53,10 @@ export default class App extends Component {
         computerId: 0,
         winner: {},
         loser: {},
-        score: 0
+        score: 0,
+         weapons: [{name: "spaceship"}, {name: "portal ray"}, {name: "robot"}],
+        winnerWeapon: 0,
+        loserWeapon: 0,
       }
     }
     
@@ -90,16 +94,32 @@ export default class App extends Component {
     this.setState({playerWeapon: data, ready: true})
   }
 
+  setWinner = (data) => {
+    
+  }
 //* Setting up winner looser
 //if playernumber (player wins)  is 0 then set results[0] to player 
 //if playernumber {player looses} is 1 then set results[1] to player
-selectingWinner =  (winner, loser, playernumber) => {
+selectingWinner =  (winner, loser, winWeapon, loseWeapon) => {
   this.setState({tied: false})
-  axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/results/${winner.id}/${loser.id}`).then(
-    results=>{
-      playernumber !== 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
-    }
-  )
+  axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/lose/${loser.id}`).then(results1=> {this.setState({results: true, loser: results1.data, loserWeapon: loseWeapon})
+  console.log("looser:")
+  console.log(results1.data)
+})
+ console.log( `https://immense-refuge-56824.herokuapp.com/api/gameplay/win/${winner.id}`)
+  axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/win/${winner.id}`).then(results=> {
+    this.setState({results: true, winner: results.data, winnerWeapon: winWeapon})
+    console.log("winner:")
+    console.log(results.data)
+
+}).catch(err=>console.log(err))
+this.setState({results:true})
+
+  // axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/results/${winner.id}/${loser.id}`).then(
+  //   results=>{
+  //     playernumber !== 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
+  //   }
+  // )
 }
   
 tiedGame = () => {
@@ -111,86 +131,84 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
 )
 }
   //* Speengle-Meengle Game Logic
-  // 1 beats 0
-  // 2 beats 1
-  // 0 beats 2
+  // 1 beats 0 spaceship beats portal ray
+  // 2 beats 1 portal ray beats robot
+  // 0 beats 2 robot beats spaceship
 
   Speengle = () => {
     let fight = this.state.fights + 1
     this.setState({fights: fight})
     if (this.state.computerWeapon == this.state.playerWeapon){
-      return this.tiedGame()
-    }
-    switch(this.state.playerWeapon){
-      // case (this.state.computerWeapon == this.state.playerWeapon):
-        
-      //   break;
-      // player is 0
-      case 0:
-        //computer wins
-        if (this.state.computerWeapon == 1){
+       this.tiedGame()
+    } else if (this.state.computerWeapon == 0){
+      //0 Spaceship
+      // 0 Spaceship beats portal gun 1
+      if(this.state.playerWeapon == 1){
+        this.selectingWinner(this.state.computer, this.state.player, this.state.computerWeapon, this.state.playerWeapon)
+      } else {
+      // 2 Robot beats 0 Spaceship
+       this.selectingWinner(this.state.player, this.state.computer, this.state.playerWeapon, this.state.computerWeapon)
+      }
+    } else if (this.state.computerWeapon == 1){
+      // 1 Portal Gun
+      // 1 Portal Gun beats Robot 2
+      if(this.state.playerWeapon == 2){
+        this.selectingWinner(this.state.computer, this.state.player, this.state.computerWeapon, this.state.playerWeapon)
+      } else {
+        // 0 Spaceship beats portal gun 1
+       this.selectingWinner(this.state.player, this.state.computer, this.state.playerWeapon, this.state.computerWeapon)
+      } 
 
-          this.setState({tied: false})
-          this.selectingWinner(this.state.computer, this.state.player, 1)
-        } else {
+    } else {
+      // 2 Robot
+      // 2 Robot beats spaceship
+      if(this.state.playerWeapon == 0){
+        this.selectingWinner(this.state.computer, this.state.player, this.state.computerWeapon, this.state.playerWeapon)
+      } else {
+ // 1 Portal Gun beats Robot 2
+       this.selectingWinner(this.state.player, this.state.computer, this.state.playerWeapon, this.state.computerWeapon)
+      } 
 
-          this.setState({tied: false})
-          this.selectingWinner(this.state.player, this.state.computer, 0)
-        }
-
-        break;
-      // player is 1
-      case 1:
-//computer wins
-        if (this.state.computerWeapon == 2){
-
-          this.setState({tied: false})
-          this.selectingWinner(this.state.computer, this.state.player, 1)
-        } else {
-
-          this.setState({tied: false})
-          this.selectingWinner(this.state.player, this.state.computer, 0)
-        }
-
-        break;
-
-      //player is 2
-      default:
-        //computer wins
-        if (this.state.computerWeapon == 0){
-
-          this.setState({tied: false})
-          this.selectingWinner(this.state.computer, this.state.player, 1)
-        } else {
-
-          this.setState({tied: false})
-          this.selectingWinner(this.state.player, this.state.computer, 0)
-        }
-
-        break;
     }
   }
 
   //* Replay and Reset
 
-  replay = (check) => {
+  replay = () => {
   
+    this.setState({
+      player:{},
+      computer:{},
+      ready: false,
+       tied: false,
+      results: false,
+      fights: 0,
+      playerWeapon: 0,
+      computerWeapon: 0,
+      computerId: 0,
+      winner: {},
+      loser: {},
+      score: 0,
+      winnerWeapon: 0,
+      loserWeapon: 0,
+    })
+
     // if check is 0 reset everything and go back to main page
     // if check is 1 reset everything and go back to character select page
     // if check is 2 reset just weapon and go to player select weapon
 
-    if (check == 0){
-      this.setState(this.state.initalstate)
-    } else if (check == 1){
-      this.setState(this.state.initalstate)
-      // let compWeapon = Math.floor(Math.random() * 3);
-      // let compPlayer = Math.floor(Math.random() * 670);
-      // axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
-      // results => {this.setState({computer: results.data, computerWeapon: compWeapon})})
-    } else {
-      let compWeapon = Math.floor(Math.random() * 3);
-      this.setState({playerWeapon: 0, computerWeapon: compWeapon })
-    }
+    // if (check == 0){
+    //   this.setState(this.state.initalstate)
+    // } else if (check == 1){
+    //   this.setState(this.state.initalstate)
+    //   // let compWeapon = Math.floor(Math.random() * 3);
+    //   // let compPlayer = Math.floor(Math.random() * 670);
+    //   // axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
+    //   // results => {this.setState({computer: results.data, computerWeapon: compWeapon})})
+    // } else {
+    //   let compWeapon = Math.floor(Math.random() * 3);
+    //   this.setState({playerWeapon: 0, computerWeapon: compWeapon })
+    // }
     
   }
 
@@ -201,6 +219,7 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
        <Switch>
          <Route path="/" exact component={Home}></Route>
          <Route path="/test" exact component={Testing}></Route>
+         <Route path="/axios" exact ><Tester {...this.state} selectingWinner={this.selectingWinner}></Tester></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
          <Route path="/game" exact component={GameEx}></Route>
