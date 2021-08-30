@@ -71,7 +71,7 @@ export default class App extends Component {
   let userWeapon = Math.floor(Math.random() * 3);
   this.setState({player: playerData, computerWeapon: compWeapon, playerWeapon: userWeapon})
   let compPlayer = Math.floor(Math.random() * 670);
-  axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
+  axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
     results => {
       this.setState({computer: results.data, ready: true})})
   
@@ -82,7 +82,7 @@ export default class App extends Component {
     let compWeapon = Math.floor(Math.random() * 3);
     this.setState({player: data, computerWeapon: compWeapon})
     let compPlayer = Math.floor(Math.random() * 670);
-    axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
+    axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
       results => {this.setState({computer: results.data})})
   }
   //* Player selecting weapon
@@ -95,7 +95,7 @@ export default class App extends Component {
 //if playernumber {player looses} is 1 then set results[1] to player
 selectingWinner =  (winner, loser, playernumber) => {
   this.setState({tied: false})
-  axios.get(`http://localhost:8080/api/gameplay/results/${winner.id}/${loser.id}`).then(
+  axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/results/${winner.id}/${loser.id}`).then(
     results=>{
       playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
     }
@@ -104,7 +104,7 @@ selectingWinner =  (winner, loser, playernumber) => {
   
 tiedGame = () => {
 console.log("tied")
-axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this.state.computer.id}`).then(
+axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.state.player.id}/${this.state.computer.id}`).then(
   results => {
     this.setState({player: results.data[0], computer: results.data[1], tied: true, })
   }
@@ -185,7 +185,7 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
       this.setState(this.state.initalstate)
       // let compWeapon = Math.floor(Math.random() * 3);
       // let compPlayer = Math.floor(Math.random() * 670);
-      // axios.get(`http://localhost:8080/api/character/id/${compPlayer}`).then(
+      // axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
       // results => {this.setState({computer: results.data, computerWeapon: compWeapon})})
     } else {
       let compWeapon = Math.floor(Math.random() * 3);

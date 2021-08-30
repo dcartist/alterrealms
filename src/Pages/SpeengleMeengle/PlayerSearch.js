@@ -12,7 +12,7 @@ export default class PlayerSearch extends Component {
         }
     }
     componentDidMount(){
-       axios.get("http://localhost:8080/api/top/20").then(results => {this.setState({characters: results.data});console.log(this.state.characters)})
+       axios.get("https://immense-refuge-56824.herokuapp.com/api/top/20").then(results => {this.setState({characters: results.data});console.log(this.state.characters)})
        
     }
     inputCharacter(e){
@@ -27,7 +27,7 @@ export default class PlayerSearch extends Component {
     }
     findByName = (info) => {
         this.clearCharacters()
-        axios.get(`http://localhost:8080/api/character/name/${info}`).then(results => {this.setState({characters: results.data});console.log(this.state.characters)})
+        axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/name/${info}`).then(results => {this.setState({characters: results.data});console.log(this.state.characters)})
         
     }
 
