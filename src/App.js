@@ -97,7 +97,7 @@ selectingWinner =  (winner, loser, playernumber) => {
   this.setState({tied: false})
   axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/results/${winner.id}/${loser.id}`).then(
     results=>{
-      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
+      playernumber !== 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
     }
   )
 }
