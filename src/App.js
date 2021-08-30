@@ -9,12 +9,14 @@ import SMWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
 import SMResults from "./Pages/SpeengleMeengle/Results"
 import MortyWorld from "./Pages/MortyWorld/Home"
 import MortyGame from "./Pages/MortyWorld/Games"
+import GameEx from "./Pages/SpeengleMeengle/GameEx"
 import Home from "./Pages/Home"
 import Testing from "./Pages/MortyWorld/TestingGround"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
 import {Route, Link, Switch, Redirect, useHistory} from "react-router-dom";
 import axios from "axios";
+import { GiThirdEye } from "react-icons/gi";
 
 
 // Speengle-Meengle RPS
@@ -36,6 +38,8 @@ export default class App extends Component {
       loser: {},
       score: 0,
       weapons: [{name: "spaceship"}, {name: "portal ray"}, {name: "robot"}],
+      winnerWeapon: 0,
+      loserWeapon: 0,
       initalstate: {
         player:{},
         computer:{},
@@ -92,7 +96,7 @@ export default class App extends Component {
 selectingWinner =  (winner, loser, playernumber) => {
   axios.get(`http://localhost:8080/api/gameplay/results/${winner.id}/${loser.id}`).then(
     results=>{
-      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true })
+      playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
     }
   )
 }
@@ -101,7 +105,7 @@ tiedGame = () => {
 console.log("tied")
 axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this.state.computer.id}`).then(
   results => {
-    this.setState({player: results.data[0], computer: results.data[1], tied: true })
+    this.setState({player: results.data[0], computer: results.data[1], tied: true, })
   }
 )
 }
@@ -113,10 +117,13 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
   Speengle = () => {
     let fight = this.state.fights + 1
     this.setState({fights: fight})
+    if (this.state.computerWeapon == this.state.playerWeapon){
+      return this.tiedGame()
+    }
     switch(this.state.playerWeapon){
-      case this.state.computerWeapon == this.state.playerWeapon:
-        this.tiedGame()
-        break;
+      // case (this.state.computerWeapon == this.state.playerWeapon):
+        
+      //   break;
       // player is 0
       case 0:
         //computer wins
@@ -183,6 +190,7 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
          <Route path="/test" exact component={Testing}></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
+         <Route path="/game" exact component={GameEx}></Route>
          <Route path="/sm" exact><SMHome  {...this.state}></SMHome></Route>
          <Route path="/sm/game" exact><SMGame {...this.state} Speengle={this.Speengle}></SMGame></Route>
          <Route path="/sm/results" exact><SMResults {...this.state} replay={this.replay}></SMResults></Route>

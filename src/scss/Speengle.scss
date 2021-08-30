@@ -1,13 +1,87 @@
-.players-section-base{
-    
-.players{
-    padding: 15px;
+.players-section-base {
+    .players {
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        row-gap: 20px;
+    }
+}
+
+.ready-game {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
     justify-content: space-evenly;
-    // column-gap: 20px;
-    row-gap: 20px;
+    flex-wrap: wrap;
+    .vs {
+        
+        h1 {
+            margin: 0;
+            font-size: 8em;
+            color: white;
+            text-shadow: 0 0 0.05em #fff, 0 0 0.2em $portalAltGreem, 0 0 0.3em $portalGreen;
+            transform: rotate(-7deg);
+        }
+        button{
+            width: 70%;
+            padding: 20px;
+            font-size: 25px;
+            background-color: $portalDarkGreen;
+            color: $textWhite !important;
+            border: none;
+        }
+        margin: auto 0;
+        text-align: center;
+    }
+    .card {
+        h1 {
+            text-align: center;
+        }
+
+        .weapon {
+            padding: 20px;
+            background-color: $summerShirt;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            border-radius: 50%;
+            z-index: 1;
+            position: absolute;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }
 
 
+.results {
+    display: flex;
+    min-height: 90vh ;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-card {
+    h1 {
+        text-align: center;
+    }
+
+    .weapon {
+        padding: 20px;
+        background-color: $summerShirt;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
