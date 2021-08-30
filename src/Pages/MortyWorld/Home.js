@@ -3,6 +3,8 @@ import MortyWorld from '../../Images/mortyworld.png'
 import { Link } from 'react-router-dom'
 import Morty from '../../Images/morty.svg'
 import Modal from "react-modal";
+import {BsInfoCircle} from 'react-icons/bs'
+import {ImEnter} from 'react-icons/im'
 export default function Home() {
     Modal.setAppElement("#root");
     const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +16,10 @@ export default function Home() {
         <div className="morty-intro">
             <h1>Morty World</h1>
             <img src={MortyWorld} />
-            <Link to="/morty/game"><button>Enter</button></Link>
-            <button onClick={toggleModal} className="morty-button-instruction">Instructions</button>
+            <div className="morty-selection">
+            <Link to="/morty/game"><button> <ImEnter></ImEnter> Enter</button></Link>
+            <button onClick={toggleModal} className="morty-button-instruction"><BsInfoCircle></BsInfoCircle> Instructions</button>
+            </div>
 
       <Modal
         isOpen={isOpen}
