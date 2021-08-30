@@ -94,6 +94,7 @@ export default class App extends Component {
 //if playernumber (player wins)  is 0 then set results[0] to player 
 //if playernumber {player looses} is 1 then set results[1] to player
 selectingWinner =  (winner, loser, playernumber) => {
+  this.setState({tied: false})
   axios.get(`http://localhost:8080/api/gameplay/results/${winner.id}/${loser.id}`).then(
     results=>{
       playernumber == 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
@@ -128,8 +129,12 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
       case 0:
         //computer wins
         if (this.state.computerWeapon == 1){
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.computer, this.state.player, 1)
         } else {
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
 
@@ -138,8 +143,12 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
       case 1:
 //computer wins
         if (this.state.computerWeapon == 2){
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.computer, this.state.player, 1)
         } else {
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
 
@@ -149,8 +158,12 @@ axios.get(`http://localhost:8080/api/gameplay/tie/${this.state.player.id}/${this
       default:
         //computer wins
         if (this.state.computerWeapon == 0){
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.computer, this.state.player, 1)
         } else {
+
+          this.setState({tied: false})
           this.selectingWinner(this.state.player, this.state.computer, 0)
         }
 
