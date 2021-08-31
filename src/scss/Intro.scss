@@ -1,13 +1,18 @@
 .intro-base{
     display: flex;
     // align-content: center;
-    min-height: 90vh;
+    min-height: 100vh;
     justify-content: center;
     flex-direction: column;
-    // background: url('../Images/rain.svg');
+    background: url('/Images/rain1.svg');
     // background-color: #2F9331;
     background-repeat: no-repeat;
+    position: relative; 
     background-size: cover;
+
+    &::before{
+        
+    }
     div{
         margin: 2px auto;
         // border: red 1px solid;
