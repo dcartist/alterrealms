@@ -51,14 +51,14 @@ export default class PlayerSearch extends Component {
                     placeholder="Enter a character"
                     type='text'
                     onChange={(e)=>this.inputCharacter(e)}
-      /> <button onClick={this.searchTime} className="realm-btn">Submit</button>
+      /> <button onClick={this.searchTime} className="realm-btn btn">Submit</button>
                     </form>
                     <div className="player-buttons">
-                        <button onClick={()=>this.findByName("rick")}> All Ricks </button>
-                        <button onClick={()=>this.findByName("morty")}> All Morties </button>
-                        <button onClick={()=>this.findByName("beth")}> All Beths </button>
-                        <button onClick={()=>this.findByName("summer")}> All Summers </button>
-                        <button onClick={()=>this.findByName("jerry")}> And Jerry </button>
+                        <button onClick={()=>this.findByName("rick")} className="btn"> All Ricks </button>
+                        <button onClick={()=>this.findByName("morty")} className="btn"> All Morties </button>
+                        <button onClick={()=>this.findByName("beth")} className="btn"> All Beths </button>
+                        <button onClick={()=>this.findByName("summer")} className="btn"> All Summers </button>
+                        <button onClick={()=>this.findByName("jerry")} className="btn"> And Jerry </button>
                     </div>
                 </div>
                 <div className="players">

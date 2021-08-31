@@ -13,7 +13,7 @@ export default function Game(props) {
             <Profile {...props.player }></Profile>
         </div>
         <div class="vs"><h1>VS.</h1>
-        <Link to="/sm/results"><button className="shadow" onClick={props.Speengle}>Fight!</button></Link>
+        <Link to="/sm/results"><button className="shadow btn" onClick={props.Speengle}>Fight!</button></Link>
         </div>
         <div className="card">
             <h1>Computer</h1>

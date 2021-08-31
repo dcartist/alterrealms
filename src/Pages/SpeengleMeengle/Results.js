@@ -15,7 +15,7 @@ export default function Results(props) {
           <Profile {...props.player }></Profile>
       </div>
       <div class="vs"><h1>Tied</h1>
-      <Link to="/sm/"><button className="shadow" onClick={props.replay}>Reset</button></Link>
+      <Link to="/sm/"><button className="shadow btn" onClick={props.replay}>Reset</button></Link>
       </div>
       <div className="card">
           <h1>Computer</h1>
@@ -45,7 +45,7 @@ export default function Results(props) {
   <h2>{props.weapons[props.winnerWeapon].name}</h2>
   <h1>beats</h1>
   <h2>{props.weapons[props.loserWeapon].name}</h2>
-  <Link to="/sm/"><button className="shadow" onClick={props.replay}>Reset</button></Link>
+  <Link to="/sm/"><button className="shadow btn" onClick={props.replay}>Reset</button></Link>
 </div>
 <div className="card">
   <h1>Loser</h1>
@@ -60,7 +60,7 @@ export default function Results(props) {
     } else {
         return(  <div> <p>Sorry somthing broke</p>
 
-      <Link to="/sm/"><button className="shadow" onClick={props.replay}>Reset</button></Link>
+      <Link to="/sm/"><button className="shadow btn" onClick={props.replay}>Reset</button></Link>
         </div>)
     }
     

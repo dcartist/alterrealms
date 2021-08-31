@@ -12,7 +12,7 @@ export default function Instructions() {
     return (
         <div>
             
-            <button onClick={toggleModal} className="realm-btn Innstructions"><BsInfoCircle></BsInfoCircle> INSTRUCTIONS</button>
+            <button onClick={toggleModal} className="realm-btn Innstructions btn"><BsInfoCircle></BsInfoCircle> INSTRUCTIONS</button>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
