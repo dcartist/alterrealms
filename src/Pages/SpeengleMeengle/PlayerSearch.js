@@ -35,6 +35,8 @@ export default class PlayerSearch extends Component {
         e.preventDefault()
         this.findByName(this.state.name)
     }
+
+    
     render() {
         return (
             <div className="players-section-base">

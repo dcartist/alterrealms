@@ -1,14 +1,22 @@
 .weapon-base{
+    padding-top: 60px;
+    text-align: center;
     .weapon-choice-base{
         display: flex;
         justify-content: space-evenly;
-        min-height: 80vh;
+        min-height: 60vh;
         -webkit-align-items: center; 
         align-items: center;
         .weapon-choice{
+            background-color: white;
+            button{
+                margin: 20px 0;
+                border: none;
+            }
          
             img {
-                width: 300px;
+                height: 200px;
+                padding: 20px;
             }
             div{
                 text-align: center;
