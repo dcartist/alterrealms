@@ -30,5 +30,17 @@
     
         }
     }
+
+    .realm-intro{
+        background: url('/Images/alterrealmintro.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-self: center;
+    }
    
 }

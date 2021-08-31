@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AlterImage from "../Images/alterrealmintro.png"
+// import AlterImage from "../Images/alterrealmintro.png"
 import RickandMorty from "../Images/alterRealm.png"
 
 export default class Home extends Component {
@@ -7,10 +7,8 @@ export default class Home extends Component {
         return (
             <div className="intro-base">
                 
-                <div>
-                <img src={AlterImage} alt="rick and morty alter realm" className="rick-alter"/>
-                </div>
-                <div>
+                
+                <div className="realm-intro">
                 <img src={RickandMorty} alt="rick and morty" className="rick-logo"/>
                 </div>
             </div>
