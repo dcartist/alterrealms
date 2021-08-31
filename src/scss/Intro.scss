@@ -39,9 +39,9 @@
         background-position: center;
         height: 90vh;
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         flex-wrap: wrap;
-        align-self: center;
+        align-items: center;
 
         img {
             width: 90vw;
