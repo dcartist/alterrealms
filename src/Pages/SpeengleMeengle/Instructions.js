@@ -12,7 +12,7 @@ export default function Instructions() {
     return (
         <div>
             
-            <button onClick={toggleModal} className="realm-btn default"><BsInfoCircle></BsInfoCircle> INSTRUCTIONS</button>
+            <button onClick={toggleModal} className="realm-btn Innstructions"><BsInfoCircle></BsInfoCircle> INSTRUCTIONS</button>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
@@ -29,8 +29,8 @@ export default function Instructions() {
       <h3>The Conditions to win</h3>
       <p>SpaceShip Beats Portal Ray. Portal Ray Beats Robot. Robot Beats Spaceship </p>
       
-        <Link to="/morty/game"><button onClick={toggleModal} className="morty-enter">Enter the game</button></Link>
-        <button onClick={toggleModal} className="morty-close">Close modal</button>
+        <Link to="/sm/characters"><button onClick={toggleModal} className="realm-btn">Enter the game</button></Link>
+        <button onClick={toggleModal} className="realm-btn">Close modal</button>
       </div>
       
       </Modal>

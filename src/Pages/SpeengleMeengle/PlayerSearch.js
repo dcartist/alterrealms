@@ -38,15 +38,15 @@ export default class PlayerSearch extends Component {
     render() {
         return (
             <div className="players-section-base">
-                <div>
+                <div className="player-form">
                     <form>
                     <input
                     placeholder="Enter a character"
                     type='text'
                     onChange={(e)=>this.inputCharacter(e)}
-      /> <button onClick={this.searchTime}>Submit</button>
+      /> <button onClick={this.searchTime} className="realm-btn">Submit</button>
                     </form>
-                    <div>
+                    <div className="player-buttons">
                         <button onClick={()=>this.findByName("rick")}> All Ricks </button>
                         <button onClick={()=>this.findByName("morty")}> All Morties </button>
                         <button onClick={()=>this.findByName("beth")}> All Beths </button>
