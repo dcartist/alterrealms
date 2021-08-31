@@ -1,10 +1,6 @@
 
 
-Speengle-Meengle
-
-
-
-# A Simple War Game
+# Alter Realm
 
 ![alter realm](src/Images/alterRealm.png)
 
