@@ -76,7 +76,7 @@ Select a character through more than 600+ characters from the Rick and Morty sho
 - Javascript
 - Axios
 - Sass
-- Express
+- Custom built api using Rick and Morty Api and express
 
 ## Reasoning:
 
