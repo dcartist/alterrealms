@@ -98,13 +98,29 @@
     width: 100vw;
 
     text-align: center;
-    img {
-        &:first-child{
-            width: 350px;
-        }
-        &.logo{
-            width: 300px;
-        }
+    .rick-images{
+        // width: 100%;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        align-self: center;
+       
+        img {
+            &:first-child{
+                width: 300px;
+                vertical-align: middle;
+            }
+            &.logo{
+                width: 500px;
 
+                vertical-align: middle;
+            }
+    
+        }
     }
+
+    .speengle-buttons{
+        display: flex;
+        justify-content: center;
+    }
+    
 }
