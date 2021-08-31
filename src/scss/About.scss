@@ -1,11 +1,29 @@
 .about-base{
     padding-top: 60px;
+    background-image: url('/Images/blue2.png');
+    background-size: cover;
+    background-position: center;
+    .about-section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 60%;
+        justify-items: center;
+    }
+    .about-infotech{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 60%;
+        justify-items: center;
+        column-gap: 20px;
+        align-content: start;
+        vertical-align: top;
+    }
     .about-info{
         background-color: $textWhite;
         color: $blackHole;
-        width: 80%;
+        width: 70%;
         margin: auto;
-        padding: 20px;
+        padding: 10px 40px 40px 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -20,8 +38,9 @@
             margin: auto;
         }
         img{
-            width: 30%;
+            width: 30vw;
             text-align: center;
+            filter: saturate(0) brightness(1.4);
         }
         a{
             color: $blackHole;
