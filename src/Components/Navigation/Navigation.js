@@ -16,7 +16,7 @@ function openNav() {
     if (location.pathname == "/"){
         return(
            <div>
-               <button className="openbtn" onClick={openNav}>&#9776; Alter Menu</button>
+               <button className="openbtn" onClick={openNav}>&#9776; Alter Realm Menu</button>
                <div id="sidepanel" className="sidepanel">
   <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
  
@@ -32,7 +32,7 @@ function openNav() {
     } else {
         return (
             <div>
-            <button className="openbtn" onClick={openNav}>&#9776; Galatic Menu</button>
+            <button className="openbtn" onClick={openNav}>&#9776; ALTER REALM MENU</button>
             <div id="sidepanel" className="sidepanel">
 <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
 

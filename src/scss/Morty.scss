@@ -8,6 +8,28 @@ background-image: url('/Images/mouse.png');
 background-size: cover;
 background-position: center;
 
+.morty-time{
+  padding-top: 30px;
+  margin: auto  ;
+  text-align: center;
+
+  h1{
+    padding: 0;
+  }
+
+  p{
+    margin-top: -20px;
+  }
+}
+
+.morty-done {
+  display: flex;
+  min-height: 90vh;
+}
+.morty-score{
+  font-size: 60px;
+  font-weight: 700;
+}
 
 .path {
     position: relative;

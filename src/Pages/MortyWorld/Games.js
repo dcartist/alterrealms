@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import useCountDown from 'react-countdown-hook';
+import {Link} from 'react-router-dom'
+import MortyHeadImage from "../../Images/morty.svg"
 export default function Games() {
     const image = [
         "/images/morty.svg", 
@@ -57,8 +59,12 @@ export default function Games() {
     if(timeLeft !== 0){
         return (
             <div className="Morty">
-                Score : {score}
+                <div className="morty-time">
+                
                 <h1 id="time-left">{(timeLeft / 1000).toFixed(2)}</h1>
+                <p>Score : {score}</p>
+                </div>
+                
                
       {morties.map((item, index) =>
        <div class="path">
@@ -69,8 +75,14 @@ export default function Games() {
 
     } else {
         return(
-            <div>
-        <p>    YOUR SCORE:  {score}</p>
+            <div className="Morty">
+        <div className="morty-done">
+        <div className="morty-time">
+                <img src={MortyHeadImage} className="shadow-graphic" />
+                <p className="morty-score">Score : {score}</p>
+                <Link to="/morty"><button className="btn">Back to Main Page</button></Link>
+                </div>
+        </div>
         
         </div>
         )
