@@ -4,7 +4,7 @@ export default function Profile(props) {
     return (
         <div className="profile shadow">
 
-            <img src={props.image_url} />
+            <img src={props.image_url} alt={props.name}/>
             <div className="profile-body">
             
             <p>{props.name}</p>

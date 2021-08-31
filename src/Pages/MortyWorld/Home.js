@@ -5,6 +5,7 @@ import Morty from '../../Images/morty.svg'
 import Modal from "react-modal";
 import {BsInfoCircle} from 'react-icons/bs'
 import {ImEnter} from 'react-icons/im'
+import MortyWorldLogo from '../../Images/mortysWorld.png'
 export default function Home() {
     Modal.setAppElement("#root");
     const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,9 @@ export default function Home() {
     }
     return (
         <div className="morty-intro">
-            <h1>Morty World</h1>
-            <img src={MortyWorld} />
+            <img src={MortyWorld} alt="Morty running" />
+            <img className="morty-logo shadow-graphic" src={MortyWorldLogo} alt="Morty's World logo" />
+            
             <div className="morty-selection">
             <Link to="/morty/game"><button> <ImEnter></ImEnter> Enter</button></Link>
             <button onClick={toggleModal} className="morty-button-instruction"><BsInfoCircle></BsInfoCircle> Instructions</button>

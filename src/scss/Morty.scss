@@ -1,9 +1,13 @@
 .Morty{
-min-height: 80vh;
+min-height: 100vh;
 max-height: 100vh;
 overflow: hidden;
 margin: 0;
 padding: 0;
+background-image: url('/Images/mouse.png');
+background-size: cover;
+background-position: center;
+
 
 .path {
     position: relative;
@@ -43,6 +47,9 @@ padding: 0;
 }
 
 .morty-intro{
+  background-image: url('/Images/blue2.png');
+  background-size: cover;
+  background-position: center;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -50,10 +57,22 @@ padding: 0;
   justify-content: center;
   margin: auto;
   text-align: center;
+  min-height: 100vh;
 
 img {
-  width: 50%;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
+  &:first-child{
+    height: 50vh;
+    margin-bottom: -20px;
+  }
+ 
+  &.morty-logo{
+    width: 50%;
+    padding: 0;
+    margin: -50px auto;
+  } 
+
 }
 
 button{
