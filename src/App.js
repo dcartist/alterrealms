@@ -9,7 +9,7 @@ import SMWeaponSelect from "./Pages/SpeengleMeengle/Weapons"
 import SMResults from "./Pages/SpeengleMeengle/Results"
 import MortyWorld from "./Pages/MortyWorld/Home"
 import MortyGame from "./Pages/MortyWorld/Games"
-import GameEx from "./Pages/SpeengleMeengle/GameEx"
+import GameEx from "./Pages/SpeengleMeengle/Trial"
 import Home from "./Pages/Home"
 import Testing from "./Pages/MortyWorld/TestingGround"
 import Tester from "./Tester"
@@ -222,7 +222,7 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
          <Route path="/axios" exact ><Tester {...this.state} selectingWinner={this.selectingWinner}></Tester></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
-         <Route path="/game" exact component={GameEx}></Route>
+         <Route path="/trial" exact component={GameEx}></Route>
          <Route path="/sm" exact><SMHome  {...this.state}></SMHome></Route>
          <Route path="/sm/game" exact><SMGame {...this.state} Speengle={this.Speengle}></SMGame></Route>
          <Route path="/sm/results" exact><SMResults {...this.state} replay={this.replay}></SMResults></Route>

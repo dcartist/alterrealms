@@ -1,20 +1,42 @@
-.intro-base{
+body {
+    &.main-body {
+        .intro-base {
+            background: url("/Images/rain3.svg");
+            // background: url('/Images/spotlight.svg');
+            // background-color: #2F9331;
+            background-repeat: no-repeat;
+            position: relative;
+            background-size: cover;
+            .realm-intro {
+                background: url("/Images/alterrealmintro.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+    &.main-body1 {
+        .intro-base {
+            // background: url('/Images/rain3.svg');
+            background: url("/Images/blueprint.png");
+            // background-color: #2F9331;
+            background-repeat: no-repeat;
+            position: relative;
+            background-size: cover;
+        }
+    }
+}
+
+.intro-base {
     display: flex;
     // align-content: center;
     min-height: 100vh;
     justify-content: center;
     flex-direction: column;
-    background: url('/Images/rain3.svg');
-    // background: url('/Images/spotlight.svg');
-    // background-color: #2F9331;
-    background-repeat: no-repeat;
-    position: relative; 
-    background-size: cover;
 
-    &::before{
-        
+    &::before {
     }
-    div{
+    div {
         margin: 2px auto;
         // border: red 1px solid;
         .rick-logo {
@@ -28,15 +50,10 @@
             width: auto;
             filter: drop-shadow(7px 7px 7px #111111);
             -webkit-filter: drop-shadow(7px 7px 7px #111111);
-    
         }
     }
 
-    .realm-intro{
-        background: url('/Images/alterrealmintro.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
+    .realm-intro {
         height: 90vh;
         display: flex;
         // flex-direction: column;
@@ -48,5 +65,4 @@
             height: auto;
         }
     }
-   
 }
