@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom'
 import Profile from '../../Components/Image/Profile'
 import axios from 'axios'
 export default class PlayerSearch extends Component {
+    
     constructor(props){
         super(props)
         this.state = {
             characters : [],
             found: true,
             name: ""
+
         }
     }
     componentDidMount(){
@@ -36,13 +38,16 @@ export default class PlayerSearch extends Component {
         this.findByName(this.state.name)
     }
 
-    
+
     render() {
+       
+        
         return (
             <div className="players-section-base">
                 <div className="player-form">
                     <form>
                     <input
+                    id="basics" 
                     placeholder="Enter a character"
                     type='text'
                     onChange={(e)=>this.inputCharacter(e)}
