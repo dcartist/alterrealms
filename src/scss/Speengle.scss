@@ -85,3 +85,26 @@
         }
     }
 }
+
+.SpeengleIntro1{
+    background-image: url('/Images/bubbles.svg');
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // background-color: rgb(55, 130, 165);
+    justify-content: center;
+    // margin: auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    text-align: center;
+    img {
+        &:first-child{
+            width: 350px;
+        }
+        &.logo{
+            width: 300px;
+        }
+
+    }
+}

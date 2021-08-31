@@ -5,22 +5,22 @@ import {GiAnimalSkull} from "react-icons/gi"
 import {MdPets} from "react-icons/md"
 
 export default function Species(props) {
-    if(props.species.includes("Hum")){
+    if(props.name.includes("Hum")){
         return(
             <FaUserAlt></FaUserAlt>
             )
     } 
-    else if(props.species.includes("Robot")){
+    else if(props.name.includes("Robot")){
         return(
             <FaRobot></FaRobot>
             )
     }
-    else if(props.species.includes("Alien")){
+    else if(props.name.includes("Alien")){
         return(
            <RiAliensFill></RiAliensFill>
             )
     }
-    else if(props.species.includes("Animal")){
+    else if(props.name.includes("Animal")){
         return(
             <MdPets></MdPets>
             )
