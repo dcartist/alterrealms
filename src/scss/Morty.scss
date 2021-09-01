@@ -1,37 +1,55 @@
-.Morty{
-min-height: 100vh;
-max-height: 100vh;
-overflow: hidden;
-margin: 0;
-padding: 0;
-background-image: url('/Images/mouse.png');
-background-size: cover;
-background-position: center;
-
-.morty-time{
-  padding-top: 30px;
-  margin: auto  ;
-  text-align: center;
-
-  h1{
-    padding: 0;
+body {
+  &.main-body {
+    .morty-intro {
+      background-image: url("/Images/blue2.png");
+      background-size: cover;
+      background-position: center;
+    }
   }
 
-  p{
-    margin-top: -20px;
+  &.main-body1 {
+    .morty-intro {
+      background-image: url("/Images/blueprint.svg");
+      background-size: cover;
+      background-position: center;
+    }
   }
 }
 
-.morty-done {
-  display: flex;
-  min-height: 90vh;
-}
-.morty-score{
-  font-size: 60px;
-  font-weight: 700;
-}
+.Morty {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-image: url("/Images/mouse.png");
+  background-size: cover;
+  background-position: center;
 
-.path {
+  .morty-time {
+    padding-top: 30px;
+    margin: auto;
+    text-align: center;
+
+    h1 {
+      padding: 0;
+    }
+
+    p {
+      margin-top: -20px;
+    }
+  }
+
+  .morty-done {
+    display: flex;
+    min-height: 90vh;
+  }
+  .morty-score {
+    font-size: 60px;
+    font-weight: 700;
+  }
+
+  .path {
     position: relative;
     width: 100%;
     min-height: 140px;
@@ -53,7 +71,6 @@ background-position: center;
     -ms-user-select: none;
   }
 
-  
   @keyframes ani {
     0% {
       left: 0;
@@ -65,11 +82,10 @@ background-position: center;
       left: 0;
     }
   }
-
 }
 
-.morty-intro{
-  background-image: url('/Images/blueprint.svg');
+.morty-intro {
+  // background-image: url("/Images/blueprint.svg");
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -81,37 +97,35 @@ background-position: center;
   text-align: center;
   min-height: 100vh;
 
-img {
-  margin: 0 auto;
-  padding: 0;
-  &:first-child{
-    height: 50vh;
-    margin-bottom: -20px;
-  }
- 
-  &.morty-logo{
-    width: 50%;
+  img {
+    margin: 0 auto;
     padding: 0;
-    margin: -50px auto;
-  } 
+    &:first-child {
+      height: 50vh;
+      margin-bottom: -20px;
+    }
 
-}
+    &.morty-logo {
+      width: 50%;
+      padding: 0;
+      margin: -50px auto;
+    }
+  }
 
-button{
-  width: 300px;
-  margin: auto;
-  padding: 20px;
-  font-size: 16px;
+  button {
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    font-size: 16px;
+  }
 }
-
-}
-.morty-selection{
+.morty-selection {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: space-evenly;
 }
-.morty-instructions{
+.morty-instructions {
   color: $blackHole !important;
   text-align: center;
   display: flex;
@@ -130,7 +144,7 @@ button{
     padding: 20px;
     font-size: 16px;
     border: none;
-    &.morty-enter{
+    &.morty-enter {
       background-color: $rickHair;
       margin: 10px auto -20px auto;
     }
