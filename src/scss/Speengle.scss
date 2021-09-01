@@ -1,3 +1,22 @@
+body {
+    &.main-body {
+        .SpeengleIntro1{
+            background-image: url('/Images/bubbles.svg');
+            
+        }
+
+
+    }
+    &.main-body1 {
+        .SpeengleIntro1{
+            background-image: url('/Images/blueprint.svg');
+            
+        }
+        .players-section-base{
+            background-image: url('/Images/blueprint.svg');
+        }
+    }
+}
 .players-section-base {
     padding-top: 70px;
     
@@ -112,7 +131,7 @@
 }
 
 .SpeengleIntro1{
-    background-image: url('/Images/bubbles.svg');
+    background-size: cover;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

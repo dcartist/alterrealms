@@ -13,7 +13,10 @@ export default function Home() {
     function toggleModal() {
         setIsOpen(!isOpen);
     }
+    
+  
     return (
+
         <div className="morty-intro">
             <img src={MortyWorld} alt="Morty running" />
             <img className="morty-logo shadow-graphic" src={MortyWorldLogo} alt="Morty's World logo" />
