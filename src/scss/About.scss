@@ -1,12 +1,12 @@
 .about-base{
     padding-top: 60px;
-    background-image: url('/Images/blue2.png');
+    background-image: url('/Images/blueprint.svg');
     background-size: cover;
     background-position: center;
     .about-section{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        width: 60%;
+        width: 55%;
         justify-items: center;
     }
     .about-infotech{
@@ -23,9 +23,11 @@
     }
     .about-info{
         background-color: $textWhite;
+
         color: $blackHole;
         width: 70%;
         margin: auto;
+        margin-bottom: 40px;
         padding: 10px 40px 40px 40px;
         display: flex;
         flex-wrap: wrap;
