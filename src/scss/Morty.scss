@@ -1,10 +1,15 @@
 body {
   &.main-body {
     .morty-intro {
-      background-image: url("/Images/blue2.png");
+      background-image: url("/Images/rain3.svg");
       background-size: cover;
       background-position: center;
     }
+
+.Morty {
+  background-image: url("/Images/rain3.svg");
+}
+
   }
 
   &.main-body1 {
@@ -12,6 +17,9 @@ body {
       background-image: url("/Images/blueprint.svg");
       background-size: cover;
       background-position: center;
+    }
+    .Morty {
+      background-image: url("/Images/mouse.png");
     }
   }
 }
@@ -23,7 +31,6 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-image: url("/Images/mouse.png");
   background-size: cover;
   background-position: center;
 
@@ -96,7 +103,7 @@ body {
   justify-content: center;
   margin: auto;
   text-align: center;
-  min-height: 100vh;
+  min-height: 90vh;
   padding-top: 30px;
 
   img {
@@ -104,13 +111,13 @@ body {
     padding: 0;
     &:first-child {
       height: 50vh;
-      margin-bottom: -20px;
+      margin-bottom: -80px;
     }
 
     &.morty-logo {
       width: 50%;
       padding: 0;
-      margin: -50px auto;
+      margin: -80px auto;
     }
   }
 
@@ -126,6 +133,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 50px;
 }
 .morty-instructions {
   color: $blackHole !important;
