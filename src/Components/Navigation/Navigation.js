@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
-
+import {WiMoonAltThirdQuarter} from 'react-icons/wi'
 
 export default function Navigation() {
     const location = useLocation();
@@ -35,11 +35,11 @@ return (
     <div id="sidepanel" className="sidepanel">
 <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
 
-             <Link to="/home" onClick={closeNav}>home</Link>
+             <Link to="/home" onClick={closeNav}>Home</Link>
              <Link to="/about" onClick={closeNav}>About</Link>
              <Link to="/sm" onClick={closeNav}>Speengle-Meengle</Link>
              <Link to="/morty" onClick={closeNav}>Morty World</Link>
-             <Link to="/home" onClick={alterIt}>Alter</Link>
+             <Link to="/home" onClick={alterIt}><WiMoonAltThirdQuarter></WiMoonAltThirdQuarter> Alter Realm</Link>
      
 </div>
 </div>

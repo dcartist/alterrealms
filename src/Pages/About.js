@@ -46,7 +46,7 @@ export default class About extends Component {
            </ul>
            </div>
             <div className="about-technology"> <h2><span>Reasoning:</span></h2><p>As a boot camp graduate from General Assembly DC Chapter (Sep. 2019) and a mentor to other boot camp students. I desired to build this game out for a while now. Also, I enjoy building apps.  </p>
-            <h2><span>Future Plan:</span></h2><p>To have autocompletion on searching characters and moving images so they load correctly. </p>
+            <h2><span>Future Plan:</span></h2><p>To have autocompletion on searching characters and moving images so they load correctly. Also a space ship game with canvas. </p>
             </div>
             
            </div>
