@@ -98,8 +98,7 @@ export default class App extends Component {
     
   }
 //* Setting up winner looser
-//if playernumber (player wins)  is 0 then set results[0] to player 
-//if playernumber {player looses} is 1 then set results[1] to player
+
 selectingWinner =  (winner, loser, winWeapon, loseWeapon) => {
   this.setState({tied: false})
   axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/lose/${loser.id}`).then(results1=> {this.setState({results: true, loser: results1.data, loserWeapon: loseWeapon})
@@ -114,12 +113,6 @@ selectingWinner =  (winner, loser, winWeapon, loseWeapon) => {
 
 }).catch(err=>console.log(err))
 this.setState({results:true})
-
-  // axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/results/${winner.id}/${loser.id}`).then(
-  //   results=>{
-  //     playernumber !== 0 ? this.setState({player: results.data[0], computer: results.data[1], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.playerWeapon, loserWeapon: this.state.computerWeapon}) : this.setState({player: results.data[1], computer: results.data[0], winner: results.data[0], loser: results.data[1], results: true, winnerWeapon: this.state.computerWeapon, loserWeapon: this.state.playerWeapon })
-  //   }
-  // )
 }
   
 tiedGame = () => {
@@ -193,26 +186,11 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
       loserWeapon: 0,
     })
 
-    // if check is 0 reset everything and go back to main page
-    // if check is 1 reset everything and go back to character select page
-    // if check is 2 reset just weapon and go to player select weapon
-
-    // if (check == 0){
-    //   this.setState(this.state.initalstate)
-    // } else if (check == 1){
-    //   this.setState(this.state.initalstate)
-    //   // let compWeapon = Math.floor(Math.random() * 3);
-    //   // let compPlayer = Math.floor(Math.random() * 670);
-    //   // axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/id/${compPlayer}`).then(
-    //   // results => {this.setState({computer: results.data, computerWeapon: compWeapon})})
-    // } else {
-    //   let compWeapon = Math.floor(Math.random() * 3);
-    //   this.setState({playerWeapon: 0, computerWeapon: compWeapon })
-    // }
     
   }
 
   render() {
+    console.log = console.warn = console.error = () => {};
     return (
       <div className="">
        <Navigation></Navigation>

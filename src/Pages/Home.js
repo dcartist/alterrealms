@@ -1,5 +1,3 @@
-
-// import AlterImage from "../Images/alterrealmintro.png"
 import RickandMorty from "../Images/alterRealm.png"
 import AlterRickandMorty from "../Images/artrealmart.png"
 

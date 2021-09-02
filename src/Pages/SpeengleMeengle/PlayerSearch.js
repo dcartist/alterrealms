@@ -16,13 +16,12 @@ export default class PlayerSearch extends Component {
         }
     }
     componentDidMount(){
-       axios.get("https://immense-refuge-56824.herokuapp.com/api/top/20").then(results => {this.setState({characters: results.data});console.log(this.state.characters)})
+       axios.get("https://immense-refuge-56824.herokuapp.com/api/top/20").then(results => {this.setState({characters: results.data})})
        
     }
     inputCharacter(e){
         e.preventDefault()
         let info = e.target.value
-        console.log(info)
         this.setState({name: info})
 
     }

@@ -17,16 +17,13 @@ export default function Game(props) {
         </div>
         <div className="card">
             <h1>Computer</h1>
-            {/* <div className="weapon shadow">
-            <img src={process.env.PUBLIC_URL + '/images/weapon/' + props.computerWeapon +".png"}></img>
-            </div> */}
+         
             <Profile {...props.computer}></Profile>
        
     </div>
     </div>
         )
     } else {
-        console.log("returning false")
       return (
         <div>
             NOT WORKING

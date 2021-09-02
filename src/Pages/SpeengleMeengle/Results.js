@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import Profile from '../../Components/Image/Profile'
 import ProfileWeapon from "../../Components/Image/ProfileWithWeapon"
 export default function Results(props) {
-    // console.log(props)
     
     if (props.tied){
         return(  <div className="ready-game">
@@ -28,11 +27,8 @@ export default function Results(props) {
   </div>)
      } 
     else if (props.results){
-        console.log(props)
         return (
-        //    <div>
-        //        <Link to="/sm/"><button className="shadow" onClick={props.replay}>Reset</button></Link>
-        //    </div>
+
 <div className="ready-game">
 <div className="card">
   <h1>Winner</h1>

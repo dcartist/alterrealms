@@ -6,7 +6,6 @@ import Rickface from "../../Images/rickface.png"
 import Speengle from "../../Images/SpeengleMeengle.png"
 import Instructions from "./Instructions"
 export default function Home(props) {
-    console.log(props)
     return (
         <div className="SpeengleIntro1">
             

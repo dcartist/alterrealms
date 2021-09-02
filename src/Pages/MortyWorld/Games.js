@@ -14,7 +14,6 @@ export default function Games() {
     const [score, setscore] = useState(0)
     const [size, setsize] = useState(100)
     const [count, setcount] = useState(0)
-    // const [final, setfinal] = useState(false)
     
     function mortyHead(number){
         let newState = [...morties];
