@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Profile from "../../Components/Image/Profile"
 
 import RickandMorty from "../../Images/alterRealm.png"
+import loading from "../../Images/mortyrickmissing.png"
 export default function Trial() {
     const sample = 
     {
@@ -22,23 +23,39 @@ export default function Trial() {
         "__v": 0
         }
 
+
+    const [altering, setaltering] = useState(true)
         function trial(){
             // document.body.style.background = 'red'
 
-            document.body.className = document.body.className.replace("main-body","main-body1");
+            // document.body.className = document.body.className.replace("main-body","main-body1");
+
+
+            if(altering){
+                document.body.className = document.body.className.replace("main-body","main-body1");
+                setaltering(!altering)
+              } else {
+          
+                  document.body.className = document.body.className.replace("main-body1","main-body");
+                  setaltering(!altering)
+              }
            
 
         }
     return (
        
-
-<div className="intro-base">
+<div className="players-section-base">
+                
+                <div className="players">
+                    <div className="loading">
+                    <img src={loading} className="shadow-graphic"/>
+                    <h1 className="shadow-graphic">Loading...</h1>
+                    </div>
                 
                 
-<div className="realm-intro">
-<button onClick={trial}>click on this</button>
-<img src={RickandMorty} alt="rick and morty" className="rick-logo"/>
-</div>
-</div>
+                {/* <button onClick={trial}> switch </button> */}
+                </div>
+               
+            </div>
     )
 }
