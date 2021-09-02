@@ -3,9 +3,12 @@ import {Link} from 'react-router-dom'
 export default function Weapons(props) {
     return (
         <div className="weapon-base">
-           <h1> Select Your Weapons</h1>
+          <div className="instructions shadow">
+          <h1> Select Your Weapons</h1>
            <h3>The Conditions to win:</h3>
       <p>SpaceShip Beats Portal Ray. Portal Ray Beats Robot. Robot Beats Spaceship </p>
+          </div>
+          
         <div className="weapon-choice-base">
         {[...Array(3)].map((x, i) => <div className="shadow">  <Link to="/sm/game" onClick={()=>props.selectWeapon(i)} className="weapon-choice">
               <button className="realm-btn">{props.weapons[i].name}</button>
