@@ -39,7 +39,7 @@ return (
              <Link to="/about" onClick={closeNav}>About</Link>
              <Link to="/sm" onClick={closeNav}>Speengle-Meengle</Link>
              <Link to="/morty" onClick={closeNav}>Morty World</Link>
-             <Link to="/home" onClick={alterIt}><WiMoonAltThirdQuarter></WiMoonAltThirdQuarter> Alter Realm</Link>
+             <Link to="/home" onClick={alterIt}><WiMoonAltThirdQuarter></WiMoonAltThirdQuarter> Click 4 Alter</Link>
      
 </div>
 </div>
