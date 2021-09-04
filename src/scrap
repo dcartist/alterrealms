@@ -51,3 +51,13 @@
               {props.computerWeapon}
             <Link to="/sm/results"><button onClick={props.Speengle}>Fight!</button></Link>
               
+
+
+
+
+
+<img src={loading} className="shadow-graphic"/>
+                    <h1 className="shadow-graphic">Loading...</h1>
+
+
+                {/* <button onClick={trial}> switch </button> */}
