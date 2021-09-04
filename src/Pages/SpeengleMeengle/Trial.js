@@ -47,14 +47,18 @@ export default function Trial() {
 <div className="players-section-base">
                 
                 <div className="players">
+               
                     <div className="loading">
-                    <img src={loading} className="shadow-graphic"/>
-                    <h1 className="shadow-graphic">Loading...</h1>
+                        <form>
+                    <input class="awesomplete" data-list="Ada, Java, JavaScript, Brainfuck, LOLCODE, Node.js, Ruby on Rails" />
+                            </form>
+                    {/* <img src={loading} className="shadow-graphic"/>
+                    <h1 className="shadow-graphic">Loading...</h1> */}
                     </div>
                 
                 
-                {/* <button onClick={trial}> switch </button> */}
                 </div>
+                {/* <button onClick={trial}> switch </button> */}
                
             </div>
     )

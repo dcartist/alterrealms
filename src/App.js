@@ -190,7 +190,7 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
   }
 
   render() {
-    console.log = console.warn = console.error = () => {};
+    // console.log = console.warn = console.error = () => {};
     return (
       <div className="">
        <Navigation></Navigation>
