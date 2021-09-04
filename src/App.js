@@ -11,7 +11,6 @@ import MortyWorld from "./Pages/MortyWorld/Home"
 import MortyGame from "./Pages/MortyWorld/Games"
 import GameEx from "./Pages/SpeengleMeengle/Trial"
 import Home from "./Pages/Home"
-import Testing from "./Pages/MortyWorld/TestingGround"
 import Tester from "./Tester"
 import Navigation from "./Components/Navigation/Navigation"
 import React, { Component } from 'react'
@@ -196,7 +195,6 @@ axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/tie/${this.st
        <Navigation></Navigation>
        <Switch>
          <Route path="/" exact component={Home}></Route>
-         <Route path="/test" exact component={Testing}></Route>
          <Route path="/axios" exact ><Tester {...this.state} selectingWinner={this.selectingWinner}></Tester></Route>
          <Route path="/home" exact component={Home}></Route>
          <Route path="/about" exact component={About}></Route>
