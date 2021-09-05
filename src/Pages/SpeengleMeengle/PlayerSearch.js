@@ -21,23 +21,37 @@ export default function PlayerSearch(props) {
             console.log(characters)
         }), [])
 
-    function findByName(info) {
-        axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/name/${info}`).then(results => {
-            if (results.data.length == 0) {
-                setfound(false)
-                setcharacters([])
-            } else {
-
-                setcharacters(results.data)
-            }
-        })
+    function findByName(info, all) {
+        if (all == 0){
+            axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/all/name/${info}`).then(results => {
+                if (results.data.length == 0) {
+                    setfound(false)
+                    setcharacters([])
+                } else {
+    
+                    setcharacters(results.data)
+                }
+            })
+        } else {
+            axios.get(`https://immense-refuge-56824.herokuapp.com/api/character/name/${info}`).then(results => {
+                if (results.data.length == 0) {
+                    setfound(false)
+                    setcharacters([])
+                } else {
+    
+                    setcharacters(results.data)
+                }
+            })
+        }
+        
     }
 
     function searchTime(e) {
         e.preventDefault()
         setfound(true)
+        setcharacters([])
         setname(text)
-        findByName(text)
+        findByName(text, 1)
     }
 
 
@@ -53,11 +67,11 @@ export default function PlayerSearch(props) {
                         <button onClick={searchTime} className="realm-btn btn">Submit</button>
                     </form>
                     <div className="player-buttons">
-                        <button onClick={() => findByName("rick")} className="btn"> All Ricks </button>
-                        <button onClick={() => findByName("morty")} className="btn"> All Morties </button>
-                        <button onClick={() => findByName("beth")} className="btn"> All Beths </button>
-                        <button onClick={() => findByName("summer")} className="btn"> All Summers </button>
-                        <button onClick={() => findByName("jerry")} className="btn"> And Jerry </button>
+                        <button onClick={() => findByName("rick", 0)} className="btn"> All Ricks </button>
+                        <button onClick={() => findByName("morty", 0)} className="btn"> All Morties </button>
+                        <button onClick={() => findByName("beth", 0)} className="btn"> All Beths </button>
+                        <button onClick={() => findByName("summer", 0)} className="btn"> All Summers </button>
+                        <button onClick={() => findByName("jerry", 0)} className="btn"> And Jerry </button>
                     </div>
                 </div>
                 <div className="players">
@@ -83,11 +97,11 @@ export default function PlayerSearch(props) {
                         <button onClick={searchTime} className="realm-btn btn">Submit</button>
                     </form>
                     <div className="player-buttons">
-                        <button onClick={() => findByName("rick")} className="btn"> All Ricks </button>
-                        <button onClick={() => findByName("morty")} className="btn"> All Morties </button>
-                        <button onClick={() => findByName("beth")} className="btn"> All Beths </button>
-                        <button onClick={() => findByName("summer")} className="btn"> All Summers </button>
-                        <button onClick={() => findByName("jerry")} className="btn"> And Jerry </button>
+                        <button onClick={() => findByName("rick", 0)} className="btn"> All Ricks </button>
+                        <button onClick={() => findByName("morty", 0)} className="btn"> All Morties </button>
+                        <button onClick={() => findByName("beth", 0)} className="btn"> All Beths </button>
+                        <button onClick={() => findByName("summer", 0)} className="btn"> All Summers </button>
+                        <button onClick={() => findByName("jerry", 0)} className="btn"> And Jerry </button>
                     </div>
                 </div>
                 <div className="players">
@@ -111,11 +125,11 @@ export default function PlayerSearch(props) {
                         <button onClick={searchTime} className="realm-btn btn">Submit</button>
                     </form>
                     <div className="player-buttons">
-                        <button onClick={() => findByName("rick")} className="btn"> All Ricks </button>
-                        <button onClick={() => findByName("morty")} className="btn"> All Morties </button>
-                        <button onClick={() => findByName("beth")} className="btn"> All Beths </button>
-                        <button onClick={() => findByName("summer")} className="btn"> All Summers </button>
-                        <button onClick={() => findByName("jerry")} className="btn"> And Jerry </button>
+                        <button onClick={() => findByName("rick", 0)} className="btn"> All Ricks </button>
+                        <button onClick={() => findByName("morty", 0)} className="btn"> All Morties </button>
+                        <button onClick={() => findByName("beth", 0)} className="btn"> All Beths </button>
+                        <button onClick={() => findByName("summer", 0)} className="btn"> All Summers </button>
+                        <button onClick={() => findByName("jerry", 0)} className="btn"> And Jerry </button>
                     </div>
                 </div>
                 <div className="players">
