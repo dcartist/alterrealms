@@ -23,7 +23,7 @@ export default class About extends Component {
                </li>
                <li><span>LinkedIn: </span> <br></br><a href="https://www.linkedin.com/in/dcartist" rel="noreferrer" target="_blank">www.linkedin.com/in/dcartist</a></li>
                <li className="github"><span>Github: </span> <br></br><a href="https://github.com/dcartist" rel="noreferrer" target="_blank">www.github.com/dcartist</a></li>
-               <li><span>Github Repo: </span><br></br><br></br> Frontend: <br></br><a href="https://github.com/dcartist/alterrealms-api" rel="noreferrer" target="_blank">www.github.com/dcartist/alterrealms-api</a><br></br><br></br>Backend:<br></br> <a href="https://github.com/dcartist/alterrealms-api" rel="noreferrer" target="_blank">www.github.com/dcartist/alterrealms-api</a></li>
+               <li><span>Github Repo: </span><br></br><br></br> Frontend: <br></br><a href="https://github.com/dcartist/alterrealms" rel="noreferrer" target="_blank">www.github.com/dcartist/alterrealms</a><br></br><br></br>Backend:<br></br> <a href="https://github.com/dcartist/alterrealms-api" rel="noreferrer" target="_blank">www.github.com/dcartist/alterrealms-api</a></li>
            </ul></div>
                     </div>
           
