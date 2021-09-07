@@ -8,6 +8,7 @@ export default class About extends Component {
                 <div className="about-info">
                     <div className="">
                         <h1>Alter Realm</h1>
+                        <p>This is a full stack MERN app that consist of 2 games (Speengle Meengle and Morty World) created during a 1 week hackathon.</p>
                         <ul>
                     <li><span>When: </span>built during the Mintbean hackathon</li>
                     <li><span>Duration of Creation: </span>1 week</li>
