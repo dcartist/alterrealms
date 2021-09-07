@@ -6,6 +6,8 @@
 
 ## About
 
+This is a full stack MERN app that consist of 2 games (Speengle Meengle and Morty World) created during a 1 week hackathon.
+
 **deployed link:** https://alterrealms.vercel.app
 
 **backend repo:** https://github.com/dcartist/alterrealms-api
