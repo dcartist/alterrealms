@@ -104,7 +104,7 @@ selectingWinner =  (winner, loser, winWeapon, loseWeapon) => {
   console.log("looser:")
   console.log(results1.data)
 })
- console.log( `https://immense-refuge-56824.herokuapp.com/api/gameplay/win/${winner.id}`)
+//  console.log( `https://immense-refuge-56824.herokuapp.com/api/gameplay/win/${winner.id}`)
   axios.get(`https://immense-refuge-56824.herokuapp.com/api/gameplay/win/${winner.id}`).then(results=> {
     this.setState({results: true, winner: results.data, winnerWeapon: winWeapon})
     console.log("winner:")

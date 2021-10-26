@@ -39,6 +39,7 @@ return (
              <Link to="/about" onClick={closeNav}>About</Link>
              <Link to="/sm" onClick={closeNav}>Speengle-Meengle</Link>
              <Link to="/morty" onClick={closeNav}>Morty World</Link>
+             {/* <a href={`${process.env.PUBLIC_URL + '/1.html'}`}> something </a> */}
              <Link to="/home" onClick={alterIt}><WiMoonAltThirdQuarter></WiMoonAltThirdQuarter> Click 4 Alter</Link>
      
 </div>

@@ -14,12 +14,17 @@ body {
 
   &.main-body1 {
     .morty-intro {
-      background-image: url("/Images/blueprint.svg");
+      background-image: url("/Images/blueprint.png");
       background-size: cover;
       background-position: center;
+      min-height: 96vh;
+      max-height: 100vh;   
+      // overflow: hidden;
     }
     .Morty {
       background-image: url("/Images/mouse.png");
+      min-height: 100vh;
+      max-height: 100vh;
     }
   }
 }
